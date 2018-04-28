@@ -8,9 +8,28 @@ const cmark_markdown_to_html = libcmark.cwrap('cmark_markdown_to_html', 'string'
 const cmark_version = libcmark.cwrap('cmark_version', 'number', null)
 const cmark_version_string = libcmark.cwrap('cmark_version_string', 'string', null)
 
-function markdownToHtml(a) {
+const CMARK_OPT_DEFAULT = 0
+const CMARK_OPT_SOURCEPOS = (1 << 1)
+const CMARK_OPT_HARDBREAKS = (1 << 2)
+const CMARK_OPT_SAFE = (1 << 3)
+const CMARK_OPT_NOBREAKS = (1 << 4)
+const CMARK_OPT_NORMALIZE = (1 << 8)
+const CMARK_OPT_VALIDATE_UTF8 = (1 << 9)
+const CMARK_OPT_SMART = (1 << 10)
+
+function markdownToHtml(a, options) {
     const len = utf8.encode(a).length
-    return cmark_markdown_to_html(a, len, 0)
+    let opt = CMARK_OPT_DEFAULT
+    if (options) {
+        if (options.sourcepos) opt |= CMARK_OPT_SOURCEPOS
+        if (options.hardbreaks) opt |= CMARK_OPT_HARDBREAKS
+        if (options.safe) opt |= CMARK_OPT_SAFE
+        if (options.nobreaks) opt |= CMARK_OPT_NOBREAKS
+        if (options.normalize) opt |= CMARK_OPT_NORMALIZE
+        if (options.validateUTF8) opt |= CMARK_OPT_VALIDATE_UTF8
+        if (options.smart) opt |= CMARK_OPT_SMART
+    }
+    return cmark_markdown_to_html(a, len, opt)
 }
 
 function cmarkVersion() {
@@ -28,6 +47,7 @@ module.exports = {
     cmark_markdown_to_html,
     cmark_version,
     cmark_version_string,
+
     /* Public API */
     markdownToHtml,
     cmarkVersion,
