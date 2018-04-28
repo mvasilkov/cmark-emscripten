@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 
 const cmark = require('../cmark-emscripten')
@@ -14,8 +16,8 @@ function memUsage() {
 }
 
 let count = 0
-for (let n = 0; n < 10; ++n) {
-    global.gc()
+for (let n = 0; n < 100; ++n) {
+    // global.gc()
     count += cmark.markdownToHtml(longText).length
     memUsage()
 }

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const stdin = require('get-stdin')
 
 const cmark = require('./cmark-emscripten')
