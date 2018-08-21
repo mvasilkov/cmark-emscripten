@@ -1,6 +1,6 @@
 {
   "name": "cmark-emscripten",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "This is an Emscripten port of the C reference implementation of CommonMark, cmark.",
   "keywords": [
     "markdown",

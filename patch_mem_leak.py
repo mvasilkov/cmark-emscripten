@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 filename = 'libcmark.js'
-originalCode = 'if(returnType==="string")ret=Pointer_stringify(ret);else'
+originalCode = 'if(returnType==="string")return Pointer_stringify(ret);'
 replacementCode = ('if(returnType==="string"){var foobar=Pointer_stringify(ret);'
-                   'if(ident==="cmark_markdown_to_html")_free(ret);ret=foobar}else')
+                   'if(ident==="cmark_markdown_to_html")_free(ret);return foobar}')
 
 
 def patch():
