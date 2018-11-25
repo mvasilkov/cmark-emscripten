@@ -21,6 +21,7 @@
   "author": "Mark Vasilkov (https://github.com/mvasilkov)",
   "license": "MIT",
   "devDependencies": {
-    "get-stdin": "^6.0.0"
+    "get-stdin": "^6.0.0",
+    "uglify-js": "^3.4.9"
   }
 }

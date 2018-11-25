@@ -9,7 +9,7 @@ BUILD_DIR=../../build_notes
 rm -f libcmark.{js,wasm}
 
 (cd $CMARK_DIR && $BUILD_DIR/patch_mem_leak.py)
-npx uglify-js --compress -o libcmark.js $CMARK_DIR/libcmark.js
+npx uglifyjs --compress -o libcmark.js $CMARK_DIR/libcmark.js
 rm $CMARK_DIR/libcmark.js
 
 mv $CMARK_DIR/libcmark.wasm .
