@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 47ac06f..5696e56 100644
+--- a/Makefile
++++ b/Makefile
+@@ -37,7 +37,7 @@ $(BUILDDIR):
+ 	@cmake --version > /dev/null || (echo "You need cmake to build this program: http://www.cmake.org/download/" && exit 1)
+ 	mkdir -p $(BUILDDIR); \
+ 	cd $(BUILDDIR); \
+-	cmake .. \
++	emconfigure cmake .. \
+ 		-G "$(GENERATOR)" \
+ 		-DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
+ 		-DCMAKE_INSTALL_PREFIX=$(INSTALL_PREFIX) \
