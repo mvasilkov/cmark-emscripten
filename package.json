@@ -1,0 +1,26 @@
+{
+  "name": "cmark-emscripten",
+  "version": "0.1.0",
+  "description": "This is an Emscripten port of the C reference implementation of CommonMark, cmark.",
+  "keywords": [
+    "markdown",
+    "commonmark",
+    "cmark",
+    "emscripten",
+    "webassembly"
+  ],
+  "main": "cmark-emscripten.js",
+  "files": [
+    "cmark-emscripten.d.ts",
+    "cmark-emscripten.js",
+    "libcmark.js",
+    "libcmark.wasm",
+    "utf8.js"
+  ],
+  "repository": "git@github.com:mvasilkov/cmark-emscripten.git",
+  "author": "Mark Vasilkov (https://github.com/mvasilkov)",
+  "license": "MIT",
+  "devDependencies": {
+    "get-stdin": "^6.0.0"
+  }
+}
